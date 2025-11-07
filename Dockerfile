@@ -28,6 +28,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
 # Copy the application files
 COPY . .
 
+# Copy SQLite database
+COPY database/database.sqlite /var/www/html/database/database.sqlite
+
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
