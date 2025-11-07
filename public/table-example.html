@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格搜尋、排序、分頁範例</title>
+    <link rel="stylesheet" href="table-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>員工資料表</h1>
+        
+        <!-- 搜尋區域 -->
+        <div class="search-container">
+            <div class="search-box-wrapper">
+                <input type="text" 
+                       id="searchInput" 
+                       class="search-input" 
+                       placeholder="搜尋表格內容...">
+                <span class="search-icon">🔍</span>
+                <button id="clearSearch" class="clear-btn" style="display: none;">✕</button>
+            </div>
+            <div class="search-info">
+                <span id="searchResultInfo">顯示 <strong id="currentCount">0</strong> 筆，共 <strong id="totalCount">0</strong> 筆</span>
+            </div>
+        </div>
+
+        <!-- 表格區域 -->
+        <div class="table-wrapper">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th data-sort="name" class="sortable">
+                            Name
+                            <span class="sort-icon"></span>
+                        </th>
+                        <th data-sort="position" class="sortable">
+                            Position
+                            <span class="sort-icon"></span>
+                        </th>
+                        <th data-sort="office" class="sortable">
+                            Office
+                            <span class="sort-icon"></span>
+                        </th>
+                        <th data-sort="age" class="sortable">
+                            Age
+                            <span class="sort-icon"></span>
+                        </th>
+                        <th data-sort="startDate" class="sortable">
+                            Start Date
+                            <span class="sort-icon"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- 動態生成 -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 無結果訊息 -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>找不到符合條件的資料</p>
+        </div>
+
+        <!-- 分頁控制 -->
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span>顯示第 <strong id="pageStart">0</strong>-<strong id="pageEnd">0</strong> 筆</span>
+                <span class="separator">|</span>
+                <span>每頁顯示：</span>
+                <select id="pageSizeSelect" class="page-size-select">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+            <div class="pagination-controls">
+                <button id="prevPage" class="page-btn" disabled>← 上一頁</button>
+                <div id="pageNumbers" class="page-numbers">
+                    <!-- 動態生成 -->
+                </div>
+                <button id="nextPage" class="page-btn">下一頁 →</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="table-scripts.js"></script>
+</body>
+</html>
+
+
